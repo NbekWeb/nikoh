@@ -2,7 +2,7 @@
   <div class="mr-1 overflow-hidden">
     <h2 class="text-xl font-semibold text-blue-900 text-center pb-10">
       Общие данные
-    </h2>
+     </h2>
     <span class="text-blue-900 text-base text-start">Ваш пол</span>
     <div class="grid grid-cols-2 gap-2.5 mb-6 mt-2.5">
       <div
