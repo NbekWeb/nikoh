@@ -33,7 +33,6 @@ const scroll = (e) => {
 </template>
 
 <style scoped>
-
 .scrollbar-content {
   height: 100vh;
   overflow-y: auto;
@@ -53,12 +52,12 @@ const scroll = (e) => {
 
 /* Handle */
 .scrollbar-content::-webkit-scrollbar-thumb {
-  background: red;
+  background: #354ddf;
   border-radius: 4px;
 }
 
 /* Handle on hover */
 .scrollbar-content::-webkit-scrollbar-thumb:hover {
-  background: blue;
+  background: #000e66;
 }
 </style>

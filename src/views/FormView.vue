@@ -1,10 +1,11 @@
 <script setup>
 import FirstForm from "@/components/FirstForm.vue";
+import SecondForm from "@/components/SecondForm.vue";
 import Scrollbar from "@/components/Scrollbar.vue";
 import { ref } from "vue";
-const start = ref(false);
+const start = ref(true);
 
-const current = ref(1);
+const current = ref(2);
 
 const changeCurrent = (i) => {
   current.value = i;
@@ -16,7 +17,7 @@ const next = (i) => {
 
 const toggleStart = () => {
   start.value = true;
-  };
+};
 </script>
 <template>
   <div class="h-screen overflow-hidden py-10">
@@ -44,7 +45,10 @@ const toggleStart = () => {
         />
       </div>
     </div>
-    <div v-else class="h-full overflow-hidden justify-between flex flex-col gap-0">
+    <div
+      v-else
+      class="h-full overflow-hidden justify-between flex flex-col gap-0"
+    >
       <div class="flex gap-0 items-center text-white px-5">
         <div
           @click="changeCurrent(1)"
@@ -75,11 +79,14 @@ const toggleStart = () => {
           3
         </div>
       </div>
-      <div class="pt-10 px-2.5 border">
+      <div class="pt-10 px-2.5">
         <scrollbar height="calc(100vh - 280px)">
           <template #content>
             <template v-if="current == 1">
               <FirstForm />
+            </template>
+            <template v-else-if="current == 2">
+              <SecondForm />
             </template>
           </template>
         </scrollbar>
