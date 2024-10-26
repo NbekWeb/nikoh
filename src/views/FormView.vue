@@ -26,12 +26,12 @@ const toggleStart = (i) => {
 };
 </script>
 <template>
-  <div class=" overflow-x-hidden ">
+  <div class="overflow-x-hidden">
     <div
-      class="flex py-10 flex-col items-center justify-between h-screen max-h-screen overflow-y-hidden overflow-x-hidden relative border "
+      class="flex py-10 flex-col items-center justify-between h-screen max-h-screen overflow-y-hidden overflow-x-hidden relative border"
       v-if="start == 0"
     >
-      <div class="flex items-center gap-1 text-sm font-semibold text-blue-800 ">
+      <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
         <img src="@/assets/img/logo.png" class="w-5 h-5" />
         nikah.space
       </div>
@@ -53,7 +53,7 @@ const toggleStart = (i) => {
     </div>
     <div
       v-else-if="start == 1"
-      class="h-full overflow-y-auto flex flex-col gap-0 py-10"
+      class="min-h-screen overflow-y-auto flex flex-col gap-0 py-10 h-full"
     >
       <div class="flex gap-0 items-center text-white px-5">
         <div
@@ -119,8 +119,11 @@ const toggleStart = (i) => {
         </a-button>
       </div>
     </div>
-    <div v-else class="flex py-10 flex-col items-center justify-between h-screen">
-      <div >
+    <div
+      v-else
+      class="flex py-10 flex-col items-center justify-between h-screen"
+    >
+      <div>
         <div
           class="flex items-center gap-1 text-sm font-semibold text-blue-800 justify-center"
         >
