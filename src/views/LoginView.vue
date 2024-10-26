@@ -32,6 +32,7 @@ const onlyNumber = (event) => {
             <a-input
               placeholder="Номер телефона"
               @keypress="onlyNumber"
+              @input="onlyNumber"
             ></a-input>
           </a-form-item>
           <a-form-item class="w-full">
