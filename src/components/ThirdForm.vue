@@ -1,11 +1,13 @@
 <template>
-  <div class="overflow-hidden mr-1 h-full">
+  <div class="overflow-x-hidden mr-1 h-full">
     <h2 class="text-xl font-semibold text-blue-900 text-center pb-10">
       Религиозность
     </h2>
     <a-form class="">
       <div class="flex flex-col gap-3 mb-6">
-        <span class="text-lg text-blue-900"> Носите бороду? </span>
+        <span class="text-lg text-blue-900"
+          >{{ gender == 1 ? "Носите бороду?" : "Носите хиджаб?" }}
+        </span>
         <a-radio-group
           v-model:value="value"
           name="radioGroup"
@@ -32,6 +34,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
+const gender = localStorage.getItem("gender");
 const value = ref("1");
 </script>
 <style>
