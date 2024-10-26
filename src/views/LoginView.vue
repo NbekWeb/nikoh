@@ -4,29 +4,25 @@ import { useRouter } from "vue-router";
 import { ref, watch } from "vue";
 
 const phoneNumber = ref("");
-// watch(phoneNumber, (newValue, oldValue) => {
-//   if (newValue * 1 > 0) {
-//     console.log("Updated phone number:", newValue);
-//   } else {
-//     phoneNumber.value = oldValue;
-//     newValue = oldValue;
-//   }
-// });
+const onlyNumber = (event) => {
+  const key = event.key;
+  if (!/^\d$/.test(key)) {
+    event.preventDefault();
+  }
+};
+
+watch(phoneNumber, (newValue, oldValue) => {
+  if (newValue * 1 > 0) {
+    console.log("Updated phone number:", newValue);
+  } else {
+    phoneNumber.value = 12;
+    newValue = 12;
+  }
+});
 const router = useRouter();
 
 const goMain = () => {
   router.push({ name: "regis" });
-};
-const onlyNumber = (event) => {
-  console.log("sa");
-  const key = event.key;
-  // if (!/^\d$/.test(key)) {
-  //   event.preventDefault();
-  // }
-  // Allow only number keys, backspace, delete, tab, etc.
-  if (!/^\d$/.test(key) && !["Backspace", "Delete", "Tab"].includes(key)) {
-    event.preventDefault();
-  }
 };
 </script>
 <template>
@@ -36,20 +32,18 @@ const onlyNumber = (event) => {
     <div class="flex flex-col items-center gap-10">
       <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
         <img src="@/assets/img/logo.png" class="w-5 h-5" />
-        nikah.space 
+        nikah.space
       </div>
       <div class="w-screen">
         <p class="mb-10 text-2xl font-semibold text-center text-blue-900">
           Войти
         </p>
+
         <a-form class="w-full px-3">
           <a-form-item class="w-full">
             <a-input
+              type="tel"
               placeholder="Номер телефона"
-              :value="phoneNumber"
-              @input="
-                (e) => (phoneNumber = e.target.value.replace(/[^0-9]/g, ''))
-              "
               @keydown="onlyNumber"
             ></a-input>
           </a-form-item>
