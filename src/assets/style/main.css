@@ -77,11 +77,19 @@
   display: none;
 }
 .ant-slider .ant-slider-track,
-.ant-slider .ant-slider-handle::after {
+.ant-slider .ant-slider-handle::after,
+.ant-slider:hover .ant-slider-track {
   background: #354ddf;
   box-shadow: none;
 }
 label {
   font-size: 18px !important;
-  color: #000E66 !important;
+  color: #000e66 !important;
+}
+.ant-slider .ant-slider-handle:hover::after,
+:where(.css-dev-only-do-not-override-17yhhjv).ant-slider
+  .ant-slider-handle:active::after,
+:where(.css-dev-only-do-not-override-17yhhjv).ant-slider
+  .ant-slider-handle:focus::after {
+  box-shadow: none;
 }
