@@ -16,7 +16,7 @@ const next = (i) => {
 
 const toggleStart = () => {
   start.value = true;
-};
+  };
 </script>
 <template>
   <div class="h-screen overflow-hidden py-10">
