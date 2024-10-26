@@ -10,7 +10,7 @@
         :class="
           gender == 1
             ? 'text-blue-700 border-blue-700 border'
-            : 'text-blue-200 border-transparent'
+            : 'text-blue-200 border-blue-200 '
         "
         @click="changeGender(1)"
       >
