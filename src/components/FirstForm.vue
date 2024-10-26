@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mr-1 overflow-hidden">
     <h2 class="text-xl font-semibold text-blue-900 text-center pb-10">
       Общие данные
     </h2>
