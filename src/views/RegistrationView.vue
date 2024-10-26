@@ -4,7 +4,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-const checked = ref(false);
+const checked = ref(true);
 const sms = ref(false);
 
 const phone = ref("");

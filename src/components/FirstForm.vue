@@ -23,7 +23,7 @@
         :class="
           gender == 2
             ? 'text-blue-700 border-blue-700'
-            : 'text-blue-200 border-transparent'
+            : 'text-blue-200 border-blue-200'
         "
       >
         <women />
