@@ -46,18 +46,18 @@ const scroll = (e) => {
 /* Track */
 .scrollbar-content::-webkit-scrollbar-track {
   width: 10px;
-  background: white;
+  background: transparent;
   border-radius: 4px;
 }
 
 /* Handle */
 .scrollbar-content::-webkit-scrollbar-thumb {
-  background: #354ddf;
+  background: transparent;
   border-radius: 4px;
 }
 
 /* Handle on hover */
 .scrollbar-content::-webkit-scrollbar-thumb:hover {
-  background: #000e66;
+  background: transparent;
 }
 </style>
