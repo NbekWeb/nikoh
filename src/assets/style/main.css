@@ -27,7 +27,9 @@
   border-color: #354ddf;
 }
 
-.ant-input::placeholder,.ant-picker-input input::placeholder,.ant-picker-suffix {
+.ant-input::placeholder,
+.ant-picker-input input::placeholder,
+.ant-picker-suffix {
   color: #4455ba !important;
   font-weight: 300;
   font-size: 14px;
@@ -62,7 +64,7 @@
   border-color: #354ddf;
 }
 
-.ant-picker{
+.ant-picker {
   border-color: #beb4ff;
   color: #354ddf !important;
   border-radius: 8px;
@@ -71,6 +73,15 @@
   display: flex;
   align-items: center;
 }
-.ant-picker-footer{
+.ant-picker-footer {
   display: none;
+}
+.ant-slider .ant-slider-track,
+.ant-slider .ant-slider-handle::after {
+  background: #354ddf;
+  box-shadow: none;
+}
+label {
+  font-size: 18px !important;
+  color: #000E66 !important;
 }

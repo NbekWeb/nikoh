@@ -1,11 +1,12 @@
 <script setup>
 import FirstForm from "@/components/FirstForm.vue";
 import SecondForm from "@/components/SecondForm.vue";
+import ThirdForm from "@/components/ThirdForm.vue";
 import Scrollbar from "@/components/Scrollbar.vue";
 import { ref } from "vue";
-const start = ref(true);
+const start = ref(0);
 
-const current = ref(2);
+const current = ref(1);
 
 const changeCurrent = (i) => {
   current.value = i;
@@ -15,15 +16,15 @@ const next = (i) => {
   current.value += i;
 };
 
-const toggleStart = () => {
-  start.value = true;
+const toggleStart = (i) => {
+  start.value = i;
 };
 </script>
 <template>
   <div class="h-screen overflow-hidden py-10">
     <div
       class="flex flex-col items-center justify-between h-full"
-      v-if="!start"
+      v-if="start == 0"
     >
       <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
         <img src="@/assets/img/logo.png" class="w-5 h-5" />
@@ -34,7 +35,7 @@ const toggleStart = () => {
       </p>
       <div class="relative w-full h-12 mb-20 px-7">
         <a-button
-          @click="toggleStart"
+          @click="toggleStart(1)"
           type="primary"
           class="w-full !rounded-2xl bg-blue-700 hover:!bg-blue-800 h-12 font-medium text-base mb-10"
           >Заполнить анкету
@@ -46,8 +47,8 @@ const toggleStart = () => {
       </div>
     </div>
     <div
-      v-else
-      class="h-full overflow-hidden justify-between flex flex-col gap-0"
+      v-else-if="start == 1"
+      class="h-full overflow-hidden flex flex-col gap-0"
     >
       <div class="flex gap-0 items-center text-white px-5">
         <div
@@ -79,7 +80,7 @@ const toggleStart = () => {
           3
         </div>
       </div>
-      <div class="pt-10 px-2.5">
+      <div class="pt-10 px-2.5 flex-grow">
         <scrollbar height="calc(100vh - 280px)">
           <template #content>
             <template v-if="current == 1">
@@ -87,6 +88,9 @@ const toggleStart = () => {
             </template>
             <template v-else-if="current == 2">
               <SecondForm />
+            </template>
+            <template v-else>
+              <ThirdForm />
             </template>
           </template>
         </scrollbar>
@@ -105,7 +109,41 @@ const toggleStart = () => {
           class="w-full !rounded-2xl bg-blue-700 hover:!bg-blue-800 h-12 font-medium text-base"
           >Продолжить
         </a-button>
+        <a-button
+          v-else
+          @click="toggleStart(2)"
+          type="primary"
+          class="w-full !rounded-2xl bg-blue-700 hover:!bg-blue-800 h-12 font-medium text-base"
+          >Завершить
+        </a-button>
       </div>
+    </div>
+    <div v-else class="flex flex-col items-center justify-between h-full">
+      <div>
+        <div
+          class="flex items-center gap-1 text-sm font-semibold text-blue-800"
+        >
+          <img src="@/assets/img/logo.png" class="w-5 h-5" />
+          nikah.space
+        </div>
+        <h2 class="text-xl font-semibold text-blue-900 text-center pt-10 mb-1">
+          Поздравляем
+        </h2>
+        <span class="text-base text-blue-900 text-center"
+          >Регистрация прошла успешно</span
+        >
+      </div>
+      <div class="w-full px-7">
+        <a-button
+          type="primary"
+          class="w-full mb-24 !rounded-2xl bg-blue-700 hover:!bg-blue-800 h-12 font-medium text-base"
+          >Смотреть анкеты 
+        </a-button>
+      </div>
+      <img
+        src="@/assets/img/bg-suc.png"
+        class="absolute bottom-0 left-0 w-full -z-10"
+      />
     </div>
   </div>
 </template>
