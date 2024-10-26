@@ -1,12 +1,21 @@
 <script setup>
 import Globus from "@/components/icons/Globus.vue";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const checked = ref(false);
 const sms = ref(false);
 
 const phone = ref("");
 const sendSms = () => {
-  sms.value = true;
+  if(!sms.value){
+    
+    sms.value = true;
+  }
+  else{
+    router.push({name:'form'})
+  }
 };
 
 const clear = () => {
@@ -28,18 +37,18 @@ const handleInput = (index) => {
 };
 </script>
 <template>
-  <div class="py-10 flex flex-col justify-between items-center h-screen">
-    <div class="flex flex-col gap-10 items-center">
-      <div class="text-blue-800 text-sm flex items-center gap-1 font-semibold">
+  <div class="flex flex-col items-center justify-between h-screen py-10 overflow-y-hidden">
+    <div class="flex flex-col items-center gap-10">
+      <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
         <img src="@/assets/img/logo.png" class="w-5 h-5" />
         nikah.space
       </div>
       <div class="w-screen">
         <div class="w-full" v-if="!sms">
-          <p class="text-blue-900 text-2xl font-semibold mb-10 text-center">
+          <p class="mb-10 text-2xl font-semibold text-center text-blue-900">
             Регистрация
           </p>
-          <a-form class="px-3 w-full">
+          <a-form class="w-full px-3">
             <a-form-item class="w-full">
               <a-input
                 placeholder="Номер телефона"
@@ -58,7 +67,7 @@ const handleInput = (index) => {
               </a-button>
             </div>
             <a-checkbox v-model:checked="checked">
-              <div class="font-light text-sm text-blue-900 pr-6">
+              <div class="pr-6 text-sm font-light text-blue-900">
                 Мне есть 18. Я согласен
 
                 <span class="text-blue-700">
@@ -69,33 +78,33 @@ const handleInput = (index) => {
               </div>
             </a-checkbox>
           </a-form>
-          <div class="flex flex-col items-center mt-10 gap-2">
-            <span class="text-blue-900 font-light text-sm">
+          <div class="flex flex-col items-center gap-0 mt-10">
+            <span class="text-sm font-light text-blue-900">
               У вас есть аккаунт?
             </span>
             <router-link
               :to="{ name: 'login' }"
-              class="text-base text-blue-700 font-bold text-center"
+              class="text-base font-bold text-center text-blue-700"
             >
               Войти</router-link
             >
           </div>
         </div>
-        <div v-else class="w-full text-center text-blue-900 px-3">
-          <p class="text-2xl font-semibold mb-2">Подтверждение</p>
+        <div v-else class="w-full px-3 text-center text-blue-900">
+          <p class="mb-2 text-2xl font-semibold">Подтверждение</p>
           <p class="mb-1 text-base">Код отправлен на номер</p>
           <span class="text-base">{{ phone }}</span>
-          <div class="mt-24 w-full flex flex-col px-10">
-            <div class="w-full grid grid-cols-4 gap-4">
+          <div class="flex flex-col w-full px-10 mt-24">
+            <div class="grid w-full grid-cols-4 gap-4">
               <div
-                class="border-b-2 flex justify-center pb-1"
+                class="flex justify-center pb-1 border-b-2"
                 :class="sms ? 'border-transparent' : 'border-blue-700'"
                 v-for="(sms, i) of smsCode"
                 :key="i"
               >
                 <input
                   type="text"
-                  class="outline-none border-none bg-transparent w-2 text-blue-700"
+                  class="w-2 text-blue-700 bg-transparent border-none outline-none"
                   v-model="smsCode[i]"
                   maxlength="1"
                   @input="handleInput(i)"
@@ -103,13 +112,13 @@ const handleInput = (index) => {
               </div>
             </div>
             <p
-              class="text-center text-blue-700 font-medium text-base mt-5"
+              class="mt-5 text-base font-medium text-center text-blue-700"
               @click="clear"
             >
               Отправить повторно
             </p>
           </div>
-          <div class="w-full mt-16 px-10">
+          <div class="w-full px-10 mt-16">
             <a-button
               @click="sendSms"
               type="primary"
@@ -124,13 +133,13 @@ const handleInput = (index) => {
         </div>
       </div>
     </div>
-    <div class="text-base text-blue-700 font-semibold flex gap-2 items-center">
+    <div class="flex items-center gap-2 text-base font-semibold text-blue-700">
       <globus class="text-xl" />
       <span>РУС</span>
     </div>
     <img
       src="@/assets/img/bg-t.png"
-      class="w-1/2 absolute left-0 -z-10 top-1/2 transform -translate-y-1/2"
+      class="absolute left-0 w-1/2 transform -translate-y-1/2 -z-10 top-1/2"
     />
     <img
       src="@/assets/img/bg-r.png"

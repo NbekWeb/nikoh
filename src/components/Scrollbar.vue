@@ -33,7 +33,6 @@ const scroll = (e) => {
 </template>
 
 <style scoped>
-@import "@/assets/style/variable.css";
 
 .scrollbar-content {
   height: 100vh;
@@ -54,12 +53,12 @@ const scroll = (e) => {
 
 /* Handle */
 .scrollbar-content::-webkit-scrollbar-thumb {
-  background: var(--light-blue);
+  background: red;
   border-radius: 4px;
 }
 
 /* Handle on hover */
 .scrollbar-content::-webkit-scrollbar-thumb:hover {
-  background: var(--light-blue);
+  background: blue;
 }
 </style>
