@@ -1,8 +1,8 @@
 <template>
-  <div class="mr-1 overflow-hidden">
+  <div class="mr-1 overflow-y-hidden">
     <h2 class="text-xl font-semibold text-blue-900 text-center pb-10">
       Общие данные
-     </h2>
+    </h2>
     <span class="text-blue-900 text-base text-start">Ваш пол</span>
     <div class="grid grid-cols-2 gap-2.5 mb-6 mt-2.5">
       <div
@@ -30,6 +30,7 @@
         <span>Женский</span>
       </div>
     </div>
+
     <a-form class="">
       <a-form-item>
         <a-input placeholder="Имя" />
@@ -68,9 +69,15 @@ import { ref } from "vue";
 import Man from "./icons/Man.vue";
 import Women from "./icons/Women.vue";
 import locale from "ant-design-vue/es/date-picker/locale/ru_RU";
+import "dayjs/locale/ru";
+import dayjs from "dayjs";
+dayjs.locale("ru");
 const gender = ref(1);
 const changeGender = (i) => {
   gender.value = i;
+  localStorage.setItem("gender", i);
+ 
 };
+localStorage.setItem("gender", "1");
 const dateFormat = "DD-MM-YYYY";
 </script>

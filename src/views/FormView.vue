@@ -2,31 +2,36 @@
 import FirstForm from "@/components/FirstForm.vue";
 import SecondForm from "@/components/SecondForm.vue";
 import ThirdForm from "@/components/ThirdForm.vue";
-import Scrollbar from "@/components/Scrollbar.vue";
 import { ref } from "vue";
 const start = ref(0);
 
 const current = ref(1);
 
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 const changeCurrent = (i) => {
   current.value = i;
+  scrollToTop();
 };
 
 const next = (i) => {
   current.value += i;
+  scrollToTop();
 };
 
 const toggleStart = (i) => {
   start.value = i;
+  scrollToTop();
 };
 </script>
 <template>
-  <div class="h-screen overflow-hidden py-10">
+  <div class=" overflow-x-hidden ">
     <div
-      class="flex flex-col items-center justify-between h-full"
+      class="flex py-10 flex-col items-center justify-between h-screen max-h-screen overflow-y-hidden overflow-x-hidden relative border "
       v-if="start == 0"
     >
-      <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
+      <div class="flex items-center gap-1 text-sm font-semibold text-blue-800 ">
         <img src="@/assets/img/logo.png" class="w-5 h-5" />
         nikah.space
       </div>
@@ -42,13 +47,13 @@ const toggleStart = (i) => {
         </a-button>
         <img
           src="@/assets/img/bg-form.png"
-          class="absolute w-full left-2 -top-36 -z-10"
+          class="absolute w-full left-2 -bottom-16 -z-10"
         />
       </div>
     </div>
     <div
       v-else-if="start == 1"
-      class="h-full overflow-hidden flex flex-col gap-0"
+      class="h-full overflow-y-auto flex flex-col gap-0 py-10"
     >
       <div class="flex gap-0 items-center text-white px-5">
         <div
@@ -81,21 +86,17 @@ const toggleStart = (i) => {
         </div>
       </div>
       <div class="pt-10 px-2.5 flex-grow">
-        <scrollbar height="calc(100vh - 280px)">
-          <template #content>
-            <template v-if="current == 1">
-              <FirstForm />
-            </template>
-            <template v-else-if="current == 2">
-              <SecondForm />
-            </template>
-            <template v-else>
-              <ThirdForm />
-            </template>
-          </template>
-        </scrollbar>
+        <template v-if="current == 1">
+          <FirstForm />
+        </template>
+        <template v-else-if="current == 2">
+          <SecondForm />
+        </template>
+        <template v-else>
+          <ThirdForm />
+        </template>
       </div>
-      <div class="px-7 flex gap-6 flex-col">
+      <div class="px-7 flex gap-3 flex-col">
         <a-button
           v-if="current > 1"
           @click="next(-1)"
@@ -118,10 +119,10 @@ const toggleStart = (i) => {
         </a-button>
       </div>
     </div>
-    <div v-else class="flex flex-col items-center justify-between h-full">
-      <div>
+    <div v-else class="flex py-10 flex-col items-center justify-between h-screen">
+      <div >
         <div
-          class="flex items-center gap-1 text-sm font-semibold text-blue-800"
+          class="flex items-center gap-1 text-sm font-semibold text-blue-800 justify-center"
         >
           <img src="@/assets/img/logo.png" class="w-5 h-5" />
           nikah.space
@@ -137,7 +138,7 @@ const toggleStart = (i) => {
         <a-button
           type="primary"
           class="w-full mb-24 !rounded-2xl bg-blue-700 hover:!bg-blue-800 h-12 font-medium text-base"
-          >Смотреть анкеты 
+          >Смотреть анкеты
         </a-button>
       </div>
       <img

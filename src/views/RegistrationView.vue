@@ -9,12 +9,17 @@ const sms = ref(false);
 
 const phone = ref("");
 const sendSms = () => {
-  if(!sms.value){
-    
+  if (!sms.value) {
     sms.value = true;
+  } else {
+    router.push({ name: "form" });
   }
-  else{
-    router.push({name:'form'})
+};
+
+const onlyNumber = (event) => {
+  const key = event.key;
+  if (!/^\d$/.test(key)) {
+    event.preventDefault();
   }
 };
 
@@ -37,7 +42,9 @@ const handleInput = (index) => {
 };
 </script>
 <template>
-  <div class="flex flex-col items-center justify-between h-screen py-10 overflow-y-hidden">
+  <div
+    class="flex flex-col items-center justify-between h-screen py-10 overflow-y-hidden"
+  >
     <div class="flex flex-col items-center gap-10">
       <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
         <img src="@/assets/img/logo.png" class="w-5 h-5" />
@@ -53,6 +60,7 @@ const handleInput = (index) => {
               <a-input
                 placeholder="Номер телефона"
                 v-model:value="phone"
+                @keypress="onlyNumber"
               ></a-input>
             </a-form-item>
             <a-form-item class="w-full">
@@ -107,6 +115,7 @@ const handleInput = (index) => {
                   class="w-2 text-blue-700 bg-transparent border-none outline-none"
                   v-model="smsCode[i]"
                   maxlength="1"
+                  @keypress="onlyNumber"
                   @input="handleInput(i)"
                 />
               </div>

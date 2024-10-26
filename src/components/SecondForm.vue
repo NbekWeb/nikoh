@@ -87,7 +87,7 @@
 
 <script setup>
 import { ref } from "vue";
-const value2 = ref([18, 80]);
+const value2 = ref([20, 30]);
 </script>
 <style>
 .ant-tooltip {

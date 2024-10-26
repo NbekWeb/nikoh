@@ -7,6 +7,12 @@ const router = useRouter();
 const goMain = () => {
   router.push({ name: "regis" });
 };
+const onlyNumber = (event) => {
+  const key = event.key;
+  if (!/^\d$/.test(key)) {
+    event.preventDefault();
+  }
+};
 </script>
 <template>
   <div
@@ -23,7 +29,10 @@ const goMain = () => {
         </p>
         <a-form class="w-full px-3">
           <a-form-item class="w-full">
-            <a-input placeholder="Номер телефона"></a-input>
+            <a-input
+              placeholder="Номер телефона"
+              @keypress="onlyNumber"
+            ></a-input>
           </a-form-item>
           <a-form-item class="w-full">
             <a-input placeholder="Пароль" type="password"></a-input>
