@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-x-hidden mr-1 h-full">
+  <div class="overflow-hidden mr-1  h-full">
     <h2 class="text-xl font-semibold text-blue-900 text-center pb-10">
       Религиозность
     </h2>
