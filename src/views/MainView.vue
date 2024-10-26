@@ -7,6 +7,9 @@ const router = useRouter();
 const goRegis = () => {
   router.push({ name: "regis" });
 };
+const goLog = () => {
+  router.push({ name: "login" });
+};
 </script>
 <template>
   <div class="flex w-full h-screen items-center justify-center">
@@ -23,6 +26,7 @@ const goRegis = () => {
           >Зарегистрироваться
         </a-button>
         <a-button
+         @click="goLog"
           class="w-full rounded-2xl border-2 border-blue-700 text-blue-700 hover:!border-blue-800 hover:!text-blue-800 text-base font-medium h-12"
           >Войти
         </a-button>
