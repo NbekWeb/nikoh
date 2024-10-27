@@ -1,26 +1,33 @@
 <script setup>
 import Globus from "@/components/icons/Globus.vue";
 import { useRouter } from "vue-router";
-import { ref, watch } from "vue";
+import { ref } from "vue";
 
 const phoneNumber = ref("");
-const onlyNumber = (event) => {
+
+const router = useRouter();
+const filterInput = (event) => {
+  const input = event.target.value;
   const key = event.key;
-  if (!/^\d$/.test(key)) {
-    event.preventDefault();
+
+  // If the key pressed is not a digit and not a control key (like Backspace)
+  if (/[^0-9]/.test(key) && key !== "Backspace") {
+    event.preventDefault(); // Prevent the default action of the key
+    return;
+  }
+
+  // If the key is Backspace, allow it and update the phoneNumber state
+  if (key === "Backspace") {
+    // Remove the last character from the phone number
+    phoneNumber.value = phoneNumber.value.slice(0, -1);
+    return;
+  }
+
+  // If it's a valid digit, update phoneNumber
+  if (/^\d$/.test(key)) {
+    phoneNumber.value += key; // Append the digit to the phoneNumber
   }
 };
-
-watch(phoneNumber, (newValue, oldValue) => {
-  if (newValue * 1 > 0) {
-    console.log("Updated phone number:", newValue);
-  } else {
-    phoneNumber.value = 12;
-    newValue = 12;
-  }
-});
-const router = useRouter();
-
 const goMain = () => {
   router.push({ name: "regis" });
 };
@@ -40,12 +47,14 @@ const goMain = () => {
         </p>
 
         <a-form class="w-full px-3">
+          {{ phoneNumber }}
           <a-form-item class="w-full">
             <a-input
               type="tel"
               placeholder="Номер телефона"
-              @keydown="onlyNumber"
-            ></a-input>
+              v-model="phoneNumber"
+              @keydown="filterInput"
+            />
           </a-form-item>
           <a-form-item class="w-full">
             <a-input placeholder="Пароль" type="password"></a-input>
