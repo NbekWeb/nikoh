@@ -37,7 +37,7 @@ const changeSelect = (i) => {
 
 <template>
   <div class="h-screen max-h-screen overflow-hidden">
-    <div class="flex flex-col" v-if="!filtr">
+    <div class="flex flex-col h-full" v-if="!filtr">
       <div class="flex-grow overflow-y-auto">
         <template v-if="selected == 1">
           <div class="flex justify-between w-full px-2.5 pt-10 pb-5 text-xl">
