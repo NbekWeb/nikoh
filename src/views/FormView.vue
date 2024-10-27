@@ -3,9 +3,15 @@ import FirstForm from "@/components/FirstForm.vue";
 import SecondForm from "@/components/SecondForm.vue";
 import ThirdForm from "@/components/ThirdForm.vue";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const start = ref(0);
 
 const current = ref(1);
+
+const goMain = () => {
+  router.push({ name: "dashboard" });
+};
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -112,7 +118,7 @@ const toggleStart = (i) => {
         </a-button>
         <a-button
           v-else
-          @click="toggleStart(2)"
+          @click="goMain"
           type="primary"
           class="w-full !rounded-2xl bg-blue-700 hover:!bg-blue-800 h-12 font-medium text-base"
           >Завершить

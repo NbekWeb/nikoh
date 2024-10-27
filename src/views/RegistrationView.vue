@@ -7,19 +7,12 @@ const router = useRouter();
 const checked = ref(true);
 const sms = ref(false);
 
-const phone = ref("");
+const phoneNumber = ref("");
 const sendSms = () => {
   if (!sms.value) {
     sms.value = true;
   } else {
     router.push({ name: "form" });
-  }
-};
-
-const onlyNumber = (event) => {
-  const key = event.key;
-  if (!/^\d$/.test(key)) {
-    event.preventDefault();
   }
 };
 
@@ -29,15 +22,26 @@ const clear = () => {
 
 const smsCode = ref(["", "", "", ""]);
 
-const handleInput = (index) => {
-  // Check if the current input is filled
-  if (smsCode.value[index].length === 1 && index < smsCode.value.length - 1) {
-    // Focus on the next input
-    const nextInput =
-      document.querySelectorAll('input[type="text"]')[index + 1];
-    if (nextInput) {
-      nextInput.focus();
-    }
+const filterInput = (event) => {
+  const input = event.target.value;
+  const key = event.key;
+
+  // If the key pressed is not a digit and not a control key (like Backspace)
+  if (/[^0-9]/.test(key) && key !== "Backspace") {
+    event.preventDefault(); // Prevent the default action of the key
+    return;
+  }
+
+  // If the key is Backspace, allow it and update the phoneNumber state
+  if (key === "Backspace") {
+    // Remove the last character from the phone number
+    phoneNumber.value = phoneNumber.value.slice(0, -1);
+    return;
+  }
+
+  // If it's a valid digit, update phoneNumber
+  if (/^\d$/.test(key)) {
+    phoneNumber.value += key; // Append the digit to the phoneNumber
   }
 };
 </script>
@@ -58,9 +62,10 @@ const handleInput = (index) => {
           <a-form class="w-full px-3">
             <a-form-item class="w-full">
               <a-input
+                type="tel"
                 placeholder="Номер телефона"
-                v-model:value="phone"
-                @keypress="onlyNumber"
+                v-model="phoneNumber"
+                @keydown="filterInput"
               ></a-input>
             </a-form-item>
             <a-form-item class="w-full">
