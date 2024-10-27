@@ -37,8 +37,8 @@ const changeSelect = (i) => {
 
 <template>
   <div class="h-screen max-h-screen overflow-hidden">
-    <div class="flex flex-col h-full" v-if="!filtr">
-      <div class="flex-grow overflow-y-auto">
+    <div class="flex flex-col h-full justify-between" v-if="!filtr">
+      <div class="h-calc overflow-y-auto">
         <template v-if="selected == 1">
           <div class="flex justify-between w-full px-2.5 pt-10 pb-5 text-xl">
             <filtr @click="changeFiltr" />
@@ -385,5 +385,9 @@ const changeSelect = (i) => {
 <style scoped>
 .custom-shadow {
   box-shadow: 0px 1px 4px 0px #d5cdff;
+}
+
+.h-calc {
+  max-height: calc(100vh - 54px);
 }
 </style>
