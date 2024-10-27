@@ -1,12 +1,12 @@
 <script setup>
 import Globus from "@/components/icons/Globus.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
 const checked = ref(true);
 const sms = ref(false);
-
+const smsInputRefs = ref([]);
 const phoneNumber = ref("");
 const sendSms = () => {
   if (!sms.value) {
@@ -44,6 +44,35 @@ const filterInput = (event) => {
     phoneNumber.value += key; // Append the digit to the phoneNumber
   }
 };
+
+const handleInput = (event, index) => {
+  const key = event.key;
+
+  // If the key pressed is not a digit and not a control key (like Backspace)
+  if (/[^0-9]/.test(key) && key !== "Backspace") {
+    event.preventDefault(); // Prevent the default action of the key
+    return;
+  }
+
+  // If the key is Backspace
+  if (key === "Backspace") {
+    // Clear the current input
+    smsCode.value[index] = "";
+
+    // Focus on the previous input field if it exists
+    if (index > 0) {
+      smsInputRefs.value[index - 1].focus();
+    }
+    return;
+  }
+
+  // If it's a valid digit, update smsCode and focus the next input
+  if (/^\d$/.test(key)) {
+    smsCode.value[index] = key; // Set the digit to the current index
+
+    
+  }
+};
 </script>
 <template>
   <div
@@ -52,7 +81,7 @@ const filterInput = (event) => {
     <div class="flex flex-col items-center gap-10">
       <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
         <img src="@/assets/img/logo.png" class="w-5 h-5" />
-        nikah.space
+        nikah.space 
       </div>
       <div class="w-screen">
         <div class="w-full" v-if="!sms">
@@ -106,7 +135,7 @@ const filterInput = (event) => {
         <div v-else class="w-full px-3 text-center text-blue-900">
           <p class="mb-2 text-2xl font-semibold">Подтверждение</p>
           <p class="mb-1 text-base">Код отправлен на номер</p>
-          <span class="text-base">{{ phone }}</span>
+          <span class="text-base">{{ phoneNumber }}</span>
           <div class="flex flex-col w-full px-10 mt-24">
             <div class="grid w-full grid-cols-4 gap-4">
               <div
@@ -116,12 +145,14 @@ const filterInput = (event) => {
                 :key="i"
               >
                 <input
-                  type="text"
+                  type="number"
+                  :min="0"
+                  :max="9"
                   class="w-2 text-blue-700 bg-transparent border-none outline-none"
                   v-model="smsCode[i]"
                   maxlength="1"
-                  @keypress="onlyNumber"
-                  @input="handleInput(i)"
+                  @keydown="(event) => handleInput(event, i)"
+                  ref="smsInputRefs"
                 />
               </div>
             </div>
