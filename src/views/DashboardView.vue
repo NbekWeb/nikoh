@@ -38,7 +38,7 @@ const changeSelect = (i) => {
 <template>
   <div class="h-screen max-h-screen overflow-hidden">
     <div class="flex flex-col h-full justify-between" v-if="!filtr">
-      <div class="h-calc overflow-y-auto">
+      <div class="h-   overflow-y-auto">
         <template v-if="selected == 1">
           <div class="flex justify-between w-full px-2.5 pt-10 pb-5 text-xl">
             <filtr @click="changeFiltr" />
@@ -356,11 +356,11 @@ const changeSelect = (i) => {
               >
             </a-select>
             <div class="flex gap-4 my-6 items-center text-sm text-blue-900">
-              <span>Только покрытые</span>
+              <span class="w-[120px]">Только покрытые</span>
               <a-switch v-model:checked="checked1" />
             </div>
             <div class="flex gap-4 items-center text-sm text-blue-900 mb-8">
-              <span>Только с фото</span>
+              <span class="w-[120px]">Только с фото</span>
               <a-switch v-model:checked="checked2" />
             </div>
             <div class="px-8 flex flex-col gap-3">
