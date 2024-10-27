@@ -29,7 +29,7 @@ const filterInput = (event) => {
   }
 };
 const goMain = () => {
-  router.push({ name: "regis" });
+  router.push({ name: "dashboard" });
 };
 </script>
 <template>
@@ -47,7 +47,6 @@ const goMain = () => {
         </p>
 
         <a-form class="w-full px-3">
-          {{ phoneNumber }}
           <a-form-item class="w-full">
             <a-input
               type="tel"
