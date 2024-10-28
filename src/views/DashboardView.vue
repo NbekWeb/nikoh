@@ -61,7 +61,7 @@ const filterInput = (event) => {
 
   // If the key pressed is not a digit and not a control key (like Backspace)
   if (/[^0-9]/.test(key) && key !== "Backspace") {
-    event.preventDefault(); // Prevent the default action of the key
+    event.preventDefault(); 
     return;
   }
 
@@ -81,8 +81,8 @@ const filterInput = (event) => {
 
 <template>
   <div class="min-h-screen">
-    <div class="overflow-y-auto min-h-screen" v-if="!filtr">
-      <div class="flex flex-col h-full justify-between">
+    <div class="min-h-screen overflow-y-auto" v-if="!filtr">
+      <div class="flex flex-col justify-between h-full">
         <div class="mb-[52px]">
           <template v-if="selected == 1">
             <div class="flex justify-between w-full px-2.5 pt-10 pb-5 text-xl">
@@ -152,14 +152,14 @@ const filterInput = (event) => {
                     <span class="text-base font-semibold text-blue-900"
                       >О себе</span
                     >
-                    <div class="text-blue-700 flex gap-5 mb-2">
+                    <div class="flex gap-5 mb-2 text-blue-700">
                       <div class="flex items-center gap-1 text-2xl">
                         <length />
-                        <span class="text-blue-900 text-sm"> 160 см </span>
+                        <span class="text-sm text-blue-900"> 160 см </span>
                       </div>
                       <div class="flex items-center gap-1 text-xl">
                         <massa />
-                        <span class="text-blue-900 text-sm">60 кг </span>
+                        <span class="text-sm text-blue-900">60 кг </span>
                       </div>
                     </div>
                     <div
@@ -220,8 +220,8 @@ const filterInput = (event) => {
                       </div>
                     </div>
                   </div>
-                  <div class="text-center pb-5">
-                    <span class="text-red text-xl" @click="changeSee">
+                  <div class="pb-5 text-center">
+                    <span class="text-xl text-red" @click="changeSee">
                       Пожаловаться
                     </span>
                   </div>
@@ -251,41 +251,41 @@ const filterInput = (event) => {
           <template v-else-if="selected == 2">
             <div>
               <div
-                class="flex pt-10 pb-6 items-center justify-center flex-grow gap-1 text-sm font-semibold text-blue-800"
+                class="flex items-center justify-center flex-grow gap-1 pt-10 pb-6 text-sm font-semibold text-blue-800"
               >
                 <img src="@/assets/img/logo.png" class="w-5 h-5" />
                 nikah.space
               </div>
               <div class="flex flex-col gap-0 px-2.5 font-inter pb-4">
-                <div class="flex gap-2 items-center h-14">
-                  <div class="bg-gray w-10 h-10 rounded-full"></div>
-                  <div class="flex flex-col gap-0 text-blue-900 text-sm">
-                    <span class="font-semibold text-base">Имя, 25</span>
+                <div class="flex items-center gap-2 h-14">
+                  <div class="w-10 h-10 rounded-full bg-gray"></div>
+                  <div class="flex flex-col gap-0 text-sm text-blue-900">
+                    <span class="text-base font-semibold">Имя, 25</span>
                     <span class="">Посмотрела вашу анкету</span>
                   </div>
                 </div>
                 <div
-                  class="flex justify-between items-center h-14"
+                  class="flex items-center justify-between h-14"
                   v-for="i of 3"
                   :key="i"
                 >
-                  <div class="flex gap-2 items-center">
-                    <div class="bg-gray w-10 h-10 rounded-full"></div>
-                    <div class="flex flex-col gap-0 text-blue-900 text-sm">
-                      <span class="font-semibold text-base">Имя, 25</span>
+                  <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-full bg-gray"></div>
+                    <div class="flex flex-col gap-0 text-sm text-blue-900">
+                      <span class="text-base font-semibold">Имя, 25</span>
                       <span class="">Лайкнула вашу анкету</span>
                     </div>
                   </div>
-                  <like class="text-blue-700 text-xl" />
+                  <like class="text-xl text-blue-700" />
                 </div>
                 <div
-                  class="flex gap-2 items-center h-14"
+                  class="flex items-center gap-2 h-14"
                   v-for="j of 12"
                   :key="j"
                 >
-                  <div class="bg-gray w-10 h-10 rounded-full"></div>
-                  <div class="flex flex-col gap-0 text-blue-900 text-sm">
-                    <span class="font-semibold text-base">Имя, 25</span>
+                  <div class="w-10 h-10 rounded-full bg-gray"></div>
+                  <div class="flex flex-col gap-0 text-sm text-blue-900">
+                    <span class="text-base font-semibold">Имя, 25</span>
                     <span class="">Посмотрела вашу анкету</span>
                   </div>
                 </div>
@@ -307,7 +307,7 @@ const filterInput = (event) => {
                 </div>
                 <logout />
               </div>
-              <h2 class="text-lg font-semibold text-blue-900 text-center pb-6">
+              <h2 class="pb-6 text-lg font-semibold text-center text-blue-900">
                 Мой профиль
               </h2>
 
@@ -321,13 +321,13 @@ const filterInput = (event) => {
                     >
                       <div class="flex items-center gap-1">
                         <loc />
-                        <span class="text-sm font-thin">Казахстан, Астана</span>
+                        <span class="text-sm ">Казахстан, Астана</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="text-blue-700 font-extralight text-sm flex gap-4 items-center py-4"
+                  class="flex items-center gap-4 py-4 text-sm text-blue-700 font-extralight"
                 >
                   <iconex class="text-xl" />
                   Разрешить другим видеть моё фото
@@ -338,14 +338,14 @@ const filterInput = (event) => {
                 <h2 class="text-base font-semibold text-blue-900 px-2.5">
                   О себе
                 </h2>
-                <div class="text-blue-700 flex gap-5 mb-2">
+                <div class="flex gap-5 mb-2 text-blue-700">
                   <div class="flex items-center gap-1 text-2xl">
                     <length />
-                    <span class="text-blue-900 text-sm"> 160 см </span>
+                    <span class="text-sm text-blue-900"> 160 см </span>
                   </div>
                   <div class="flex items-center gap-1 text-xl">
                     <massa />
-                    <span class="text-blue-900 text-sm">60 кг </span>
+                    <span class="text-sm text-blue-900">60 кг </span>
                   </div>
                 </div>
                 <div
@@ -410,12 +410,12 @@ const filterInput = (event) => {
             <template v-else>
               <div>
                 <div
-                  class="w-full pt-10 pb-6 px-2.5 flex justify-between items-center text-2xl text-blue-700"
+                  class="w-full relative pt-10 pb-6 px-2.5 flex justify-center items-center text-2xl text-blue-700"
                 >
-                  <chevron @click="goBack" />
+                  <chevron @click="goBack" class="absolute left-0 " />
 
                   <div
-                    class="flex items-center gap-1 text-sm font-semibold text-blue-800 flex-grow justify-center"
+                    class="flex items-center justify-center flex-grow gap-1 text-sm font-semibold text-blue-800"
                   >
                     <img src="@/assets/img/logo.png" class="w-5 h-5" />
                     nikah.space
@@ -423,7 +423,7 @@ const filterInput = (event) => {
                 </div>
                 <template v-if="back == 1">
                   <h2
-                    class="text-lg font-semibold text-blue-900 text-center pb-6"
+                    class="pb-6 text-lg font-semibold text-center text-blue-900"
                   >
                     Настройки
                   </h2>
@@ -441,7 +441,7 @@ const filterInput = (event) => {
                       Безопасность
                     </div>
                     <div
-                      class="flex items-center gap-2 text-base font-semibold text-blue-700 justify-center pt-10"
+                      class="flex items-center justify-center gap-2 py-10 text-base font-semibold text-blue-700"
                     >
                       <globus class="text-xl" />
                       <span>РУС</span>
@@ -450,12 +450,12 @@ const filterInput = (event) => {
                 </template>
                 <template v-else-if="back == 2">
                   <h2
-                    class="text-lg font-semibold text-blue-900 text-center pb-6"
+                    class="pb-6 text-lg font-semibold text-center text-blue-900"
                   >
                     Профиль
                   </h2>
                   <div class="px-2.5">
-                    <h2 class="text-base font-semibold text-blue-900 mb-3">
+                    <h2 class="mb-3 text-base font-semibold text-blue-900">
                       Общие данные
                     </h2>
                     <a-form>
@@ -483,12 +483,28 @@ const filterInput = (event) => {
                       </a-form-item>
                       <a-form-item>
                         <div class="grid grid-cols-2 gap-5">
-                          <a-input
+                          <a-select
+                          placeholder="Рост, см "
+                          class="w-full !min-h-12"
+                          value="ac"
+                        >
+                          <a-select-option value="vil">160</a-select-option>
+                          <a-select-option value="ac">170</a-select-option>
+                        </a-select>
+                        <a-select
+                          placeholder="Вес, кг"
+                          class="w-full !min-h-12"
+                          value="ac"
+                        >
+                          <a-select-option value="vil">70</a-select-option>
+                          <a-select-option value="ac">60</a-select-option>
+                        </a-select>
+                          <!-- <a-input
                             placeholder="Рост, см"
                             value="160"
                             suffix="см"
                           />
-                          <a-input placeholder="Вес, кг" suffix="кг" />
+                          <a-input placeholder="Вес, кг" suffix="кг" /> -->
                         </div>
                       </a-form-item>
                       <a-form-item label="Семейное положение">
@@ -570,7 +586,7 @@ const filterInput = (event) => {
                         </a-select>
                       </a-form-item>
                       <a-form-item label="Ссылки на соц.сети">
-                        <div class="flex gap-6 flex-col">
+                        <div class="flex flex-col gap-6">
                           <a-input
                             placeholder="Номер WhatsApp"
                             value="12345671"
@@ -617,7 +633,7 @@ const filterInput = (event) => {
                         </a-select>
                       </a-form-item>
                     </a-form>
-                    <div class="px-8 flex flex-col gap-3 pb-4">
+                    <div class="flex flex-col gap-3 px-8 pb-4">
                       <a-button
                         @click="goBack"
                         class="w-full rounded-2xl border-2 border-blue-700 text-blue-700 hover:!border-blue-800 hover:!text-blue-800 text-base font-medium h-12"
@@ -630,7 +646,7 @@ const filterInput = (event) => {
                         >Сохранить
                       </a-button>
                       <div
-                        class="flex justify-center text-blue-700 text-base"
+                        class="flex justify-center text-base text-blue-700"
                         @click="goBack"
                       >
                         Удалить профиль
@@ -640,12 +656,12 @@ const filterInput = (event) => {
                 </template>
                 <template v-else>
                   <h2
-                    class="text-lg font-semibold text-blue-900 text-center pb-6"
+                    class="pb-6 text-lg font-semibold text-center text-blue-900"
                   >
                     Безопасность
                   </h2>
-                  <a-form class="w-full px-2.5">
-                    <a-form-item class="w-full">
+                  <a-form class="w-full px-2.5" layout="vertical">
+                    <a-form-item class="w-full" label="Номер телефона">
                       <a-input
                         type="tel"
                         placeholder="Номер телефона"
@@ -673,7 +689,7 @@ const filterInput = (event) => {
                       ></a-input>
                     </a-form-item>
                   </a-form>
-                  <div class="px-8 flex flex-col gap-3 pb-4">
+                  <div class="flex flex-col gap-3 px-8 pb-4">
                     <a-button
                       @click="goBack"
                       class="w-full rounded-2xl border-2 border-blue-700 text-blue-700 hover:!border-blue-800 hover:!text-blue-800 text-base font-medium h-12"
@@ -686,7 +702,7 @@ const filterInput = (event) => {
                       >Сохранить
                     </a-button>
                     <div
-                      class="flex justify-center text-blue-700 text-base"
+                      class="flex justify-center text-base text-blue-700"
                       @click="goBack"
                     >
                       Удалить профиль
@@ -736,7 +752,7 @@ const filterInput = (event) => {
         <h2 class="pb-10 text-xl font-semibold text-center text-blue-900">
           Фильтры
         </h2>
-        <a-form class="px-2.5">
+        <a-form class="px-2.5" layout="vertical">
           <a-form-item>
             <a-select placeholder="Страна" class="w-full !min-h-12">
               <a-select-option value="ru">Россия</a-select-option>
@@ -808,15 +824,15 @@ const filterInput = (event) => {
                 >Не указано</a-select-option
               >
             </a-select>
-            <div class="flex gap-4 my-6 items-center text-sm text-blue-900">
+            <div class="flex items-center gap-4 my-6 text-sm text-blue-900">
               <span class="w-[120px]">Только покрытые</span>
               <a-switch v-model:checked="checked1" />
             </div>
-            <div class="flex gap-4 items-center text-sm text-blue-900 mb-8">
+            <div class="flex items-center gap-4 mb-8 text-sm text-blue-900">
               <span class="w-[120px]">Только с фото</span>
               <a-switch v-model:checked="checked2" />
             </div>
-            <div class="px-8 flex flex-col gap-3 pb-4">
+            <div class="flex flex-col gap-3 px-8 pb-4">
               <a-button
                 @click="changeFiltr"
                 class="w-full rounded-2xl border-2 border-blue-700 text-blue-700 hover:!border-blue-800 hover:!text-blue-800 text-base font-medium h-12"

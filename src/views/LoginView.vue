@@ -46,7 +46,7 @@ const goMain = () => {
           Войти
         </p>
 
-        <a-form class="w-full px-3">
+        <a-form class="w-full px-3" layout="vertical">
           <a-form-item class="w-full">
             <a-input
               type="tel"
@@ -80,7 +80,7 @@ const goMain = () => {
         >
       </div>
       <div
-        class="flex items-center gap-2 text-base font-semibold text-blue-700"
+        class="flex items-center gap-2 pb-10 text-base font-semibold text-blue-700"
       >
         <globus class="text-xl" />
         <span>РУС</span>

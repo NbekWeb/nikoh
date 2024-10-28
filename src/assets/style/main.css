@@ -16,6 +16,10 @@
   transition: 0.3s ease;
 }
 
+/* .w-screen {
+  max-width: 450px;
+} */
+
 .font-inter {
   font-family: "inter", sans-serif;
 }
@@ -105,11 +109,13 @@ label {
   box-shadow: none;
 }
 
-.ant-switch.ant-switch-checked {
-  background: #354ddf;
+.ant-switch.ant-switch-checked,
+.ant-switch.ant-switch-checked:hover {
+  background: #354ddf !important;
 }
-.ant-switch {
-  background: #beb4ff;
+.ant-switch,
+.ant-switch:hover {
+  background: #beb4ff !important;
 }
 .ant-input-suffix {
   color: #354ddf;

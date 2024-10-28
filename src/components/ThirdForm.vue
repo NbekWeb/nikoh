@@ -1,9 +1,9 @@
 <template>
-  <div class="overflow-hidden mr-1  h-full">
-    <h2 class="text-xl font-semibold text-blue-900 text-center pb-10">
+  <div class="h-full mr-1 overflow-hidden">
+    <h2 class="pb-10 text-xl font-semibold text-center text-blue-900">
       Религиозность
     </h2>
-    <a-form class="">
+    <a-form class="" layout="vertical">
       <div class="flex flex-col gap-3 mb-6">
         <span class="text-lg text-blue-900"
           >{{ gender == 1 ? "Носите бороду?" : "Носите хиджаб?" }}
