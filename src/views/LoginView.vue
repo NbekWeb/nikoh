@@ -49,7 +49,7 @@ const goMain = () => {
         <a-form class="w-full px-3" layout="vertical">
           <a-form-item class="w-full">
             <a-input
-              type="tel"
+              type="number"
               placeholder="Номер телефона"
               v-model="phoneNumber"
               @keydown="filterInput"
