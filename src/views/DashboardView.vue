@@ -20,6 +20,7 @@ const value2 = ref([20, 30]);
 
 const selected = ref(1);
 const back = ref(1);
+const num = ref(1);
 const seeAll = ref(true);
 const setting = ref(false);
 const checked1 = ref(true);
@@ -61,7 +62,7 @@ const filterInput = (event) => {
 
   // If the key pressed is not a digit and not a control key (like Backspace)
   if (/[^0-9]/.test(key) && key !== "Backspace") {
-    event.preventDefault(); 
+    event.preventDefault();
     return;
   }
 
@@ -321,7 +322,7 @@ const filterInput = (event) => {
                     >
                       <div class="flex items-center gap-1">
                         <loc />
-                        <span class="text-sm ">Казахстан, Астана</span>
+                        <span class="text-sm font-semibold">Казахстан, Астана</span>
                       </div>
                     </div>
                   </div>
@@ -412,7 +413,7 @@ const filterInput = (event) => {
                 <div
                   class="w-full relative pt-10 pb-6 px-2.5 flex justify-center items-center text-2xl text-blue-700"
                 >
-                  <chevron @click="goBack" class="absolute left-0 " />
+                  <chevron @click="goBack" class="absolute left-0" />
 
                   <div
                     class="flex items-center justify-center flex-grow gap-1 text-sm font-semibold text-blue-800"
@@ -484,21 +485,29 @@ const filterInput = (event) => {
                       <a-form-item>
                         <div class="grid grid-cols-2 gap-5">
                           <a-select
-                          placeholder="Рост, см "
-                          class="w-full !min-h-12"
-                          value="ac"
-                        >
-                          <a-select-option value="vil">160</a-select-option>
-                          <a-select-option value="ac">170</a-select-option>
-                        </a-select>
-                        <a-select
-                          placeholder="Вес, кг"
-                          class="w-full !min-h-12"
-                          value="ac"
-                        >
-                          <a-select-option value="vil">70</a-select-option>
-                          <a-select-option value="ac">60</a-select-option>
-                        </a-select>
+                            placeholder="Рост, см "
+                            class="w-full !min-h-12"
+                            value="ac"
+                          >
+                            <a-select-option value="vil"
+                              >160 , см</a-select-option
+                            >
+                            <a-select-option value="ac"
+                              >170 , см</a-select-option
+                            >
+                          </a-select>
+                          <a-select
+                            placeholder="Вес, кг"
+                            class="w-full !min-h-12"
+                            value="ac"
+                          >
+                            <a-select-option value="vil"
+                              >70 , кг</a-select-option
+                            >
+                            <a-select-option value="ac"
+                              >60 , кг</a-select-option
+                            >
+                          </a-select>
                           <!-- <a-input
                             placeholder="Рост, см"
                             value="160"
@@ -606,10 +615,10 @@ const filterInput = (event) => {
                         <a-radio-group
                           name="radioGroup"
                           class="flex gap-14"
-                          value="1"
+                          v-model:value="num"
                         >
-                          <a-radio value="1">Да</a-radio>
-                          <a-radio value="2">Нет</a-radio>
+                          <a-radio :value="1">Да</a-radio>
+                          <a-radio :value="2">Нет</a-radio>
                         </a-radio-group>
                       </div>
                       <a-form-item label="Вы читаете Намаз?">
