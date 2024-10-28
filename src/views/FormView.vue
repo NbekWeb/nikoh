@@ -24,8 +24,9 @@ const changeCurrent = (i) => {
 const next = (i) => {
   if (current.value > 2) {
     start.value = 2;
+  } else {
+    current.value += i;
   }
-  current.value += i;
   scrollToTop();
 };
 
@@ -124,7 +125,7 @@ const toggleStart = (i) => {
           @click="next(1)"
           type="primary"
           class="w-full !rounded-2xl bg-blue-700 hover:!bg-blue-800 h-12 font-medium text-base"
-          >Завершить 
+          >Завершить
         </a-button>
       </div>
     </div>

@@ -48,25 +48,25 @@
       </a-form-item>
       <span class="text-base text-blue-900"> Дата рождения </span>
       <a-form-item class="mt-3">
-        <a-select placeholder="ДД.ММ.ГГГГ" class="w-full !min-h-12">
+        <!-- <a-select placeholder="ДД.ММ.ГГГГ" class="w-full !min-h-12">
           <a-select-option value="vil">11-02-2023</a-select-option>
-        </a-select>
-        <!-- <a-date-picker
+        </a-select> -->
+        <a-date-picker
           :locale="locale"
           class="w-full min-h-12"
           :format="dateFormat"
           placeholder="ДД.ММ.ГГГГ"
-        /> -->
+        />
       </a-form-item>
       <a-form-item>
         <div class="grid grid-cols-2 gap-5">
           <a-select placeholder="Рост, см " class="w-full !min-h-12" value="ac">
-            <a-select-option value="vil">160</a-select-option>
-            <a-select-option value="ac">170</a-select-option>
+            <a-select-option value="vil">160 , см</a-select-option>
+            <a-select-option value="ac">170 , см</a-select-option>
           </a-select>
           <a-select placeholder="Вес, кг" class="w-full !min-h-12" value="ac">
-            <a-select-option value="vil">70</a-select-option>
-            <a-select-option value="ac">60</a-select-option>
+            <a-select-option value="vil">70 , кг</a-select-option>
+            <a-select-option value="ac">60 , кг</a-select-option>
           </a-select>
           <!-- <a-input placeholder="Рост, см" />
           <a-input placeholder="Вес, кг" /> -->
