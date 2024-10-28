@@ -59,17 +59,17 @@
         />
       </a-form-item>
       <a-form-item>
-        <div class="grid grid-cols-2 gap-5">
-          <a-select placeholder="Рост, см " class="w-full !min-h-12" value="ac">
+        <div class="grid grid-cols-2 gap-5 min-h-12">
+          <!-- <a-select placeholder="Рост, см " class="w-full !min-h-12" value="ac">
             <a-select-option value="vil">160  см</a-select-option>
             <a-select-option value="ac">170  см</a-select-option>
           </a-select>
           <a-select placeholder="Вес, кг" class="w-full !min-h-12" value="ac">
             <a-select-option value="vil">70  кг</a-select-option>
             <a-select-option value="ac">60  кг</a-select-option>
-          </a-select>
-          <!-- <a-input placeholder="Рост, см" />
-          <a-input placeholder="Вес, кг" /> -->
+          </a-select> -->
+          <a-input placeholder="Рост, см" value="160" suffix="см" />
+          <a-input placeholder="Вес, кг" suffix="кг" />
         </div>
       </a-form-item>
     </a-form>
