@@ -32,7 +32,7 @@ const goLog = () => {
         </a-button>
       </div>
       <div
-        class="absolute flex items-center gap-2 text-base font-semibold text-blue-700 bottom-20"
+        class="absolute flex items-center gap-2 text-base font-semibold text-blue-700 bottom-10"
       >
         <globus class="text-xl" />
         <span>РУС</span>

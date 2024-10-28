@@ -178,7 +178,7 @@ const handleInput = (event, index) => {
         </div>
       </div>
     </div>
-    <div class="flex items-center gap-2 pb-10 text-base font-semibold text-blue-700">
+    <div class="flex items-center gap-2 text-base font-semibold text-blue-700 ">
       <globus class="text-xl" />
       <span>РУС</span>
     </div>
