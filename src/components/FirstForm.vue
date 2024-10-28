@@ -68,8 +68,8 @@
             <a-select-option value="vil">70  кг</a-select-option>
             <a-select-option value="ac">60  кг</a-select-option>
           </a-select> -->
-          <a-input placeholder="Рост, см" suffix="см" type="number" :min="1" />
-          <a-input placeholder="Вес, кг" suffix="кг" type="number" :min="1" />
+          <a-input placeholder="Рост" suffix="см" type="number" :min="1" />
+          <a-input placeholder="Вес" suffix="кг" type="number" :min="1" />
         </div>
       </a-form-item>
     </a-form>
