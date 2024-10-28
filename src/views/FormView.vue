@@ -38,7 +38,7 @@ const toggleStart = (i) => {
 <template>
   <div class="overflow-x-hidden">
     <div
-      class="relative flex flex-col items-center justify-between h-screen max-h-screen py-10 overflow-x-hidden overflow-y-hidden"
+      class="relative flex flex-col items-center justify-between py-10 overflow-x-hidden overflow-y-hidden max-h-sc h-sc"
       v-if="start == 0"
     >
       <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
@@ -131,7 +131,7 @@ const toggleStart = (i) => {
     </div>
     <div
       v-else
-      class="flex flex-col items-center justify-between h-screen py-10"
+      class="flex flex-col items-center justify-between py-10 h-sc"
     >
       <div>
         <div
