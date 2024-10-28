@@ -483,8 +483,8 @@ const filterInput = (event) => {
                         </a-select>
                       </a-form-item>
                       <a-form-item>
-                        <div class="grid grid-cols-2 gap-5">
-                          <a-select
+                        <div class="grid grid-cols-2 gap-5 max-h-12">
+                          <!-- <a-select
                             placeholder="Рост, см "
                             class="w-full !min-h-12"
                             value="ac"
@@ -507,13 +507,13 @@ const filterInput = (event) => {
                             <a-select-option value="ac"
                               >60 , кг</a-select-option
                             >
-                          </a-select>
-                          <!-- <a-input
+                          </a-select> -->
+                          <a-input
                             placeholder="Рост, см"
                             value="160"
                             suffix="см"
                           />
-                          <a-input placeholder="Вес, кг" suffix="кг" /> -->
+                          <a-input placeholder="Вес, кг" suffix="кг" />
                         </div>
                       </a-form-item>
                       <a-form-item label="Семейное положение">
