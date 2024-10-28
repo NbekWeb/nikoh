@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="flex justify-center"> -->
-    <div class="relative min-h-screen">
+    <div class="relative">
       <RouterView />
     <!-- </div> -->
   </div>
