@@ -508,12 +508,8 @@ const filterInput = (event) => {
                               >60 , кг</a-select-option
                             >
                           </a-select> -->
-                          <a-input
-                            placeholder="Рост, см"
-                            value="160"
-                            suffix="см"
-                          />
-                          <a-input placeholder="Вес, кг" suffix="кг" />
+                          <a-input placeholder="Рост, см" suffix="см" type="number" :min="1" :value="160" />
+                          <a-input placeholder="Вес, кг" suffix="кг" type="number" :min="1" :value="50" />
                         </div>
                       </a-form-item>
                       <a-form-item label="Семейное положение">
