@@ -12,7 +12,7 @@ const goLog = () => {
 };
 </script>
 <template>
-  <div class="flex items-center justify-center w-full h-screen">
+  <div class="flex items-center justify-center w-full overflow-y-hidden h-sc">
     <div class="flex flex-col items-center px-10 font-medium text-blue-900">
       <span class="text-2xl font-semibold"> Добро пожаловать </span>
       <span class="flex items-center gap-1 mt-5 mb-10 text-2xl text-blue-800">

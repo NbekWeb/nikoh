@@ -16,6 +16,10 @@
   transition: 0.3s ease;
 }
 
+.h-sc {
+  height: calc(100vh - 20px);
+}
+
 /* .w-screen {
   max-width: 450px;
 } */
