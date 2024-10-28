@@ -12,7 +12,7 @@ const filterInput = (event) => {
 
   // If the key pressed is not a digit and not a control key (like Backspace)
   if (/[^0-9]/.test(key) && key !== "Backspace") {
-    event.preventDefault(); // Prevent the default action of the key
+    event.preventDefault();
     return;
   }
 

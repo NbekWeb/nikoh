@@ -12,10 +12,10 @@ const goLog = () => {
 };
 </script>
 <template>
-  <div class="flex w-full h-screen items-center justify-center">
-    <div class="text-blue-900 font-medium px-10 flex flex-col items-center">
+  <div class="flex items-center justify-center w-full h-screen">
+    <div class="flex flex-col items-center px-10 font-medium text-blue-900">
       <span class="text-2xl font-semibold"> Добро пожаловать </span>
-      <span class="text-2xl flex gap-1 items-center mt-5 mb-10 text-blue-800">
+      <span class="flex items-center gap-1 mt-5 mb-10 text-2xl text-blue-800">
         <img src="@/assets/img/logo.png" class="w-10" /> nikah.space
       </span>
       <div>
@@ -32,7 +32,7 @@ const goLog = () => {
         </a-button>
       </div>
       <div
-        class="text-base text-blue-700 font-semibold flex gap-2 items-center absolute bottom-10"
+        class="absolute flex items-center gap-2 text-base font-semibold text-blue-700 bottom-20"
       >
         <globus class="text-xl" />
         <span>РУС</span>
