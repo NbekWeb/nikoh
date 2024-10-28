@@ -34,7 +34,7 @@ const goMain = () => {
 </script>
 <template>
   <div
-    class="flex flex-col items-center justify-between h-screen py-10 overflow-y-hidden"
+    class="flex flex-col items-center justify-between py-10 overflow-y-hidden h-sc"
   >
     <div class="flex flex-col items-center gap-10">
       <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
