@@ -56,6 +56,12 @@ const handleInput = (index) => {
     sendSms();
   }
 };
+function handleBackspace(event, index) {
+  // If Backspace is pressed and current input is empty, move focus to the previous input
+  if (event.key === 'Backspace' && smsCode.value[index] === '' && index > 0) {
+    smsInputRefs.value[index - 1]?.focus();
+  }
+}
 </script>
 <template>
   <div
@@ -135,6 +141,7 @@ const handleInput = (index) => {
                   v-model="smsCode[i]"
                   maxlength="1"
                   @input="() => handleInput(i)"
+                  @keydown="(event) => handleBackspace(event, i)"
                   ref="smsInputRefs"
                 />
               </div>
