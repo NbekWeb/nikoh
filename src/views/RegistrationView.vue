@@ -45,32 +45,15 @@ const filterInput = (event) => {
   }
 };
 
-const handleInput = (event, index) => {
-  const key = event.key;
-
-  // If the key pressed is not a digit and not a control key (like Backspace)
-  if (/[^0-9]/.test(key) && key !== "Backspace") {
-    event.preventDefault(); // Prevent the default action of the key
-    return;
+const handleInput = (index) => {
+  if (
+    smsCode.value[index].toString().length === 1 &&
+    index < smsCode.value.length - 1
+  ) {
+    smsInputRefs.value[index + 1]?.focus();
   }
-
-  // If the key is Backspace
-  if (key === "Backspace") {
-    // Clear the current input
-    smsCode.value[index] = "";
-
-    // Focus on the previous input field if it exists
-    if (index > 0) {
-      smsInputRefs.value[index - 1].focus();
-    }
-    return;
-  }
-
-  // If it's a valid digit, update smsCode and focus the next input
-  if (/^\d$/.test(key)) {
-    smsCode.value[index] = key; // Set the digit to the current index
-
-    
+  if (index == smsCode.value.length - 1) {
+    sendSms();
   }
 };
 </script>
@@ -81,7 +64,7 @@ const handleInput = (event, index) => {
     <div class="flex flex-col items-center gap-10">
       <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
         <img src="@/assets/img/logo.png" class="w-5 h-5" />
-        nikah.space 
+        nikah.space
       </div>
       <div class="w-screen">
         <div class="w-full" v-if="!sms">
@@ -151,7 +134,7 @@ const handleInput = (event, index) => {
                   class="w-2 text-blue-700 bg-transparent border-none outline-none"
                   v-model="smsCode[i]"
                   maxlength="1"
-                  @keydown="(event) => handleInput(event, i)"
+                  @input="() => handleInput(i)"
                   ref="smsInputRefs"
                 />
               </div>
@@ -178,7 +161,7 @@ const handleInput = (event, index) => {
         </div>
       </div>
     </div>
-    <div class="flex items-center gap-2 text-base font-semibold text-blue-700 ">
+    <div class="flex items-center gap-2 text-base font-semibold text-blue-700">
       <globus class="text-xl" />
       <span>РУС</span>
     </div>
