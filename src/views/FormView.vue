@@ -22,6 +22,9 @@ const changeCurrent = (i) => {
 };
 
 const next = (i) => {
+  if (current.value > 2) {
+    start.value = 2;
+  }
   current.value += i;
   scrollToTop();
 };
@@ -34,7 +37,7 @@ const toggleStart = (i) => {
 <template>
   <div class="overflow-x-hidden">
     <div
-      class="flex py-10 flex-col items-center justify-between h-screen max-h-screen overflow-y-hidden overflow-x-hidden relative border"
+      class="relative flex flex-col items-center justify-between h-screen max-h-screen py-10 overflow-x-hidden overflow-y-hidden"
       v-if="start == 0"
     >
       <div class="flex items-center gap-1 text-sm font-semibold text-blue-800">
@@ -59,12 +62,12 @@ const toggleStart = (i) => {
     </div>
     <div
       v-else-if="start == 1"
-      class="min-h-screen overflow-y-auto flex flex-col gap-0 py-10 h-full"
+      class="flex flex-col h-full min-h-screen gap-0 py-10 overflow-y-auto"
     >
-      <div class="flex gap-0 items-center text-white px-5">
+      <div class="flex items-center gap-0 px-5 text-white">
         <div
           @click="changeCurrent(1)"
-          class="w-7 h-7 rounded-full bg-blue-700 flex justify-center items-center"
+          class="flex items-center justify-center bg-blue-700 rounded-full w-7 h-7"
         >
           1
         </div>
@@ -74,7 +77,7 @@ const toggleStart = (i) => {
         ></div>
         <div
           @click="changeCurrent(2)"
-          class="w-7 h-7 rounded-full flex justify-center items-center"
+          class="flex items-center justify-center rounded-full w-7 h-7"
           :class="current > 1 ? 'bg-blue-700' : '  bg-pink-600'"
         >
           2
@@ -85,7 +88,7 @@ const toggleStart = (i) => {
         ></div>
         <div
           @click="changeCurrent(3)"
-          class="w-7 h-7 rounded-full flex justify-center items-center"
+          class="flex items-center justify-center rounded-full w-7 h-7"
           :class="current > 2 ? 'bg-blue-700' : ' bg-pink-600'"
         >
           3
@@ -102,7 +105,7 @@ const toggleStart = (i) => {
           <ThirdForm />
         </template>
       </div>
-      <div class="px-7 flex gap-3 flex-col">
+      <div class="flex flex-col gap-3 px-7">
         <a-button
           v-if="current > 1"
           @click="next(-1)"
@@ -118,33 +121,34 @@ const toggleStart = (i) => {
         </a-button>
         <a-button
           v-else
-          @click="goMain"
+          @click="next(1)"
           type="primary"
           class="w-full !rounded-2xl bg-blue-700 hover:!bg-blue-800 h-12 font-medium text-base"
-          >Завершить
+          >Завершить 
         </a-button>
       </div>
     </div>
     <div
       v-else
-      class="flex py-10 flex-col items-center justify-between h-screen"
+      class="flex flex-col items-center justify-between h-screen py-10"
     >
       <div>
         <div
-          class="flex items-center gap-1 text-sm font-semibold text-blue-800 justify-center"
+          class="flex items-center justify-center gap-1 text-sm font-semibold text-blue-800"
         >
           <img src="@/assets/img/logo.png" class="w-5 h-5" />
           nikah.space
         </div>
-        <h2 class="text-xl font-semibold text-blue-900 text-center pt-10 mb-1">
+        <h2 class="pt-10 mb-1 text-xl font-semibold text-center text-blue-900">
           Поздравляем
         </h2>
-        <span class="text-base text-blue-900 text-center"
+        <span class="text-base text-center text-blue-900"
           >Регистрация прошла успешно</span
         >
       </div>
       <div class="w-full px-7">
         <a-button
+          @click="goMain"
           type="primary"
           class="w-full mb-24 !rounded-2xl bg-blue-700 hover:!bg-blue-800 h-12 font-medium text-base"
           >Смотреть анкеты

@@ -1,9 +1,9 @@
 <template>
-  <div class="overflow-hidden mr-1">
-    <h2 class="text-xl font-semibold text-blue-900 text-center pb-10">
+  <div class="mr-1 overflow-hidden">
+    <h2 class="pb-10 text-xl font-semibold text-center text-blue-900">
       Общие данные
     </h2>
-    <a-form class="">
+    <a-form class="" layout="vertical">
       <a-form-item label="Семейное положение">
         <a-select placeholder="Выбрать" class="w-full !min-h-12">
           <a-select-option value="single">Холост</a-select-option>
@@ -22,13 +22,13 @@
             class="w-full"
           />
           <div
-            class="w-full justify-between items-center text-base flex -mt-2 text-blue-600"
+            class="flex items-center justify-between w-full -mt-2 text-base text-blue-600"
           >
             <span>18</span>
             <span>80</span>
           </div>
           <div
-            class="absolute text-blue-500 flex justify-between -top-6 text-sm h-5 pb-2"
+            class="absolute flex justify-between h-5 pb-2 text-sm text-blue-500 -top-6"
             :style="{
               left: `calc(${((value2[0] - 18) / (80 - 18)) * 100}% - 5px)`,
               width: `calc(${
@@ -74,7 +74,7 @@
         </a-select>
       </a-form-item>
       <a-form-item label="Ссылки на соц.сети">
-        <div class="flex gap-6 flex-col">
+        <div class="flex flex-col gap-6">
           <a-input placeholder="Номер WhatsApp" />
           <a-input placeholder="Instagram " />
           <a-input placeholder="Telegram " />

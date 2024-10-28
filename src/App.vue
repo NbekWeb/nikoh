@@ -1,6 +1,8 @@
 <template>
-  <div class=" min-h-screen">
-    <RouterView />
+  <!-- <div class="flex justify-center"> -->
+    <div class="relative min-h-screen">
+      <RouterView />
+    <!-- </div> -->
   </div>
 </template>
 <script setup>

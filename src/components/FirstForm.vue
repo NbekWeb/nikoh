@@ -1,16 +1,16 @@
 <template>
   <div class="mr-1 overflow-y-hidden">
-    <h2 class="text-xl font-semibold text-blue-900 text-center pb-10">
+    <h2 class="pb-10 text-xl font-semibold text-center text-blue-900">
       Общие данные
     </h2>
-    <span class="text-blue-900 text-base text-start">Ваш пол</span>
+    <span class="text-base text-blue-900 text-start">Ваш пол</span>
     <div class="grid grid-cols-2 gap-2.5 mb-6 mt-2.5">
       <div
-        class="rounded-lg h-12 flex gap-3 items-center justify-center"
+        class="flex items-center justify-center h-12 gap-3 rounded-lg"
         :class="
           gender == 1
             ? 'text-blue-700 border-blue-700 border'
-            : 'text-blue-200 border-blue-200 '
+            : 'text-blue-200 border-blue-200 border'
         "
         @click="changeGender(1)"
       >
@@ -19,7 +19,7 @@
       </div>
       <div
         @click="changeGender(2)"
-        class="h-12 border rounded-lg flex gap-3 items-center justify-center"
+        class="flex items-center justify-center h-12 gap-3 border rounded-lg"
         :class="
           gender == 2
             ? 'text-blue-700 border-blue-700'
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <a-form class="">
+    <a-form class="" layout="vertical">
       <a-form-item>
         <a-input placeholder="Имя" />
       </a-form-item>
@@ -46,19 +46,30 @@
           <a-select-option value="vil">Москва</a-select-option>
         </a-select>
       </a-form-item>
-      <span class="text-blue-900 text-base"> Дата рождения </span>
+      <span class="text-base text-blue-900"> Дата рождения </span>
       <a-form-item class="mt-3">
-        <a-date-picker
+        <a-select placeholder="ДД.ММ.ГГГГ" class="w-full !min-h-12">
+          <a-select-option value="vil">11-02-2023</a-select-option>
+        </a-select>
+        <!-- <a-date-picker
           :locale="locale"
           class="w-full min-h-12"
           :format="dateFormat"
           placeholder="ДД.ММ.ГГГГ"
-        />
+        /> -->
       </a-form-item>
       <a-form-item>
         <div class="grid grid-cols-2 gap-5">
-          <a-input placeholder="Рост, см" />
-          <a-input placeholder="Вес, кг" />
+          <a-select placeholder="Рост, см " class="w-full !min-h-12" value="ac">
+            <a-select-option value="vil">160</a-select-option>
+            <a-select-option value="ac">170</a-select-option>
+          </a-select>
+          <a-select placeholder="Вес, кг" class="w-full !min-h-12" value="ac">
+            <a-select-option value="vil">70</a-select-option>
+            <a-select-option value="ac">60</a-select-option>
+          </a-select>
+          <!-- <a-input placeholder="Рост, см" />
+          <a-input placeholder="Вес, кг" /> -->
         </div>
       </a-form-item>
     </a-form>
@@ -76,7 +87,6 @@ const gender = ref(1);
 const changeGender = (i) => {
   gender.value = i;
   localStorage.setItem("gender", i);
- 
 };
 localStorage.setItem("gender", "1");
 const dateFormat = "DD-MM-YYYY";
